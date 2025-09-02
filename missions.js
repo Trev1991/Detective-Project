@@ -1,5 +1,5 @@
 function mysteryOperation() {
-    const outcome = Math.random(); // 0 <= n < 1
+    const outcome = Math.random(); // Generates a random number between 0 and 1.
 
     if (outcome < 0.5) {
         console.log("The operation is completed successfully!");
@@ -9,25 +9,25 @@ function mysteryOperation() {
     }
 }
 
-// running 20 missions and tally vacation days
-function runMissions(total = 20) {
-    let vacationDays = 0;
+const numberOfOperations = 20;
 
-    for (let i = 0; i < total; i++) {
-        try {
-            // success path - may throw
-            mysteryOperation();
-            vacationDays += 13;        // success award
-        } catch (err) {
-            // failure path
-            vacationDays += 1;         // motivation day
-        } finally {
-            // always runs
-            vacationDays += 3;         // attendance days
-        }
+const daysOnSuccess = 13;
+const daysOnFailure = 1;
+const daysOnAttendance = 3;
+
+let daysEarned = 0;
+
+for (let i = 0; i < numberOfOperations; i++) {
+    try {
+        mysteryOperation();
+        daysEarned += daysOnSuccess;
     }
-
-    console.log(`Vacation days earned: ${vacationDays}`);
+    catch (error) {
+        daysEarned += daysOnFailure;
+    }
+    finally {
+        daysEarned += daysOnAttendance;
+    }
 }
 
-runMissions(20);
+console.log(daysEarned);
