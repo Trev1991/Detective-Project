@@ -9,7 +9,7 @@ function mysteryOperation() {
 	}
 }
 
-// run 20 missions and tally vacation days
+// running 20 missions and tally vacation days
 function runMissions(total = 20) {
 	let vacationDays = 0;
 
